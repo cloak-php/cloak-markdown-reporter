@@ -13,6 +13,7 @@ use cloak\Result;
 use cloak\result\Line;
 use cloak\reporter\MarkdownReporter;
 use \Mockery;
+use \DateTime;
 
 
 describe('MarkdownReporter', function() {
@@ -22,6 +23,8 @@ describe('MarkdownReporter', function() {
         $this->source1 = $fixturePath . '/Example1.php';
         $this->source2 = $fixturePath . '/Example2.php';
         $this->markdownReport = $fixturePath . '/report.md';
+
+        $this->startDateTime = DateTime::createFromFormat('Y-m-d H:i:s', '2014-07-10 00:00:00');
 
         $coverageResults = [
             $this->source1 => [
@@ -44,7 +47,7 @@ describe('MarkdownReporter', function() {
     describe('onStop', function() {
         before(function() {
             $this->startEvent = Mockery::mock('cloak\event\StartEventInterface');
-            $this->startEvent->shouldReceive('getSendAt')->never();
+            $this->startEvent->shouldReceive('getSendAt')->once()->andReturn($this->startDateTime);
 
             $this->stopEvent = Mockery::mock('cloak\event\StopEventInterface');
             $this->stopEvent->shouldReceive('getResult')->once()->andReturn($this->result);

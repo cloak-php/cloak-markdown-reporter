@@ -48,11 +48,16 @@ class MarkdownReporter implements ReporterInterface
         self::ALIGN_RIGTH
     ];
 
-
     /**
      * @var \cloak\writer\FileWriter
      */
     private $reportWriter;
+
+    /**
+     * @var \DateTime
+     */
+    private $generatedAt;
+
 
     /**
      * @param string $outputFilePath
@@ -67,6 +72,7 @@ class MarkdownReporter implements ReporterInterface
      */
     public function onStart(StartEventInterface $event)
     {
+        $this->generatedAt = $event->getSendAt();
     }
 
     /**
@@ -95,8 +101,10 @@ class MarkdownReporter implements ReporterInterface
 
     private function writeDescription()
     {
+        $generatedDateTime = $this->generatedAt->format('j F Y \a\t H:i');
+
         $this->reportWriter->writeLine('Generator: cloak  ');
-        $this->reportWriter->writeLine('Generated at: 2014-07-10 00:00:00  ');
+        $this->reportWriter->writeLine("Generated at: $generatedDateTime  ");
         $this->reportWriter->writeLine('');
     }
 
