@@ -31,7 +31,9 @@ $factory = new ReportBuilderFactory(new ConfigurationLoader());
 $builder = $factory->createFromConfigurationFile(__DIR__ . '/../coveralls.yml');
 
 foreach ($result as $file => $coverage) {
-    if (preg_match('/vendor/', $file) || preg_match('/spec/', $file)) {
+    if (preg_match('/vendor/', $file)
+        || preg_match('/spec/', $file)
+        || preg_match('/script/', $file)) {
         continue;
     }
 
