@@ -29,6 +29,8 @@ class MarkdownReporter implements ReporterInterface
 
     use Reportable;
 
+    const TABLE_SEPARATOR_CHAR = '|';
+
     /**
      * @var \cloak\writer\FileWriter
      */
@@ -131,7 +133,8 @@ class MarkdownReporter implements ReporterInterface
             $coverageResult
         ];
 
-        $record = '|' . implode('|', $parts) . '|';
+        $columnsValue = implode(static::TABLE_SEPARATOR_CHAR, $parts);
+        $record = static::TABLE_SEPARATOR_CHAR . $columnsValue . static::TABLE_SEPARATOR_CHAR;
 
         $this->reportWriter->writeLine($record);
     }
