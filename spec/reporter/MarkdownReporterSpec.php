@@ -9,17 +9,62 @@
  * with this source code in the file LICENSE.
  */
 
+use cloak\Result;
+use cloak\result\Line;
 use cloak\reporter\MarkdownReporter;
+use \Mockery;
+
 
 describe('MarkdownReporter', function() {
+    before(function() {
+        $fixturePath = realpath(__DIR__ . '/../spec/fixture/');
+
+        $this->source1 = $fixturePath . 'Example1.php';
+        $this->source2 = $fixturePath . 'Example2.php';
+        $this->markdownReport = $fixturePath . 'report.md';
+
+        $coverageResults = [
+            $this->source1 => [
+                10 => Line::EXECUTED,
+                11 => Line::EXECUTED
+            ],
+            $this->source2 => [
+                10 => Line::UNUSED,
+                15 => Line::EXECUTED
+            ]
+        ];
+
+        $this->result = Result::from($coverageResults);
+    });
 
     describe('onStart', function() {
         it('check mock object expectations');
     });
 
     describe('onStop', function() {
-        it('output the markdown report');
-        it('check mock object expectations');
+        before(function() {
+            $this->startEvent = Mockery::mock('cloak\event\StartEventInterface');
+            $this->startEvent->shouldReceive('getSendAt')->never();
+
+            $this->stopEvent = Mockery::mock('cloak\event\StopEventInterface');
+            $this->stopEvent->shouldReceive('getResult')->once()->andReturn($this->result);
+
+            $this->directoryPath = realpath(__DIR__ . '/../tmp/');
+            $this->filePath = $this->directoryPath . '/report.md';
+
+            $this->reporter = new MarkdownReporter($this->filePath);
+            $this->reporter->onStart($this->startEvent);
+            $this->reporter->onStop($this->stopEvent);
+
+            $this->outputReport = file_get_contents($this->markdownReport);
+        });
+
+        it('output the markdown report', function() {
+            expect(file_get_contents($this->filePath))->toEqual($this->outputReport);
+        });
+        it('check mock object expectations', function() {
+            Mockery::close();
+        });
     });
 
 });
