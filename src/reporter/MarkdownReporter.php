@@ -17,6 +17,7 @@ use cloak\result\File;
 use cloak\writer\FileWriter;
 use cloak\event\StartEventInterface;
 use cloak\event\StopEventInterface;
+use PhpCollection\Sequence;
 
 
 /**
@@ -79,27 +80,40 @@ class MarkdownReporter implements ReporterInterface
         $this->reportWriter->writeLine('');
     }
 
+    private function writeResult(Result $result)
+    {
+        $this->writeResultHeader();
+        $this->writeFilesResultHeader();
+        $this->writeFilesResult($result->getFiles());
+    }
+
     private function writeResultHeader()
     {
         $this->reportWriter->writeLine('## Result');
         $this->reportWriter->writeLine('');
+    }
 
+    private function writeFilesResultHeader()
+    {
         $this->reportWriter->writeLine('| No. | File | Line | Coverage |');
         $this->reportWriter->writeLine('|:-|:-|-:|-:|');
     }
 
-    private function writeResult(Result $result)
+    /**
+     * @param Sequence $files
+     */
+    private function writeFilesResult(Sequence $files)
     {
-        $this->writeResultHeader();
-
-        $files = $result->getFiles();
-
         foreach ($files as $key => $file) {
             $orderNumber = $key + 1;
             $this->writeFileResult($orderNumber, $file);
         }
     }
 
+    /**
+     * @param int $orderNumber
+     * @param File $file
+     */
     private function writeFileResult($orderNumber, File $file)
     {
 
