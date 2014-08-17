@@ -2,7 +2,7 @@ cloak-markdown-reporter
 =======================
 
 **cloak-markdown-reporter** is markdown reporter for [cloak](https://github.com/holyshared/cloak).  
-Please refer to [this site](http://daringfireball.net/projects/markdown/) for markdown.
+Output in [markdown](http://daringfireball.net/projects/markdown/) format the report of code coverage.
 
 [![Build Status](https://travis-ci.org/holyshared/cloak-markdown-reporter.svg?branch=master)](https://travis-ci.org/holyshared/cloak-markdown-reporter)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/holyshared/cloak-markdown-reporter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/holyshared/cloak-markdown-reporter/?branch=master)
@@ -22,7 +22,7 @@ Please add a description to the **composer.json** in the configuration file.
 	{
 		"require-dev": {
 			"cloak/cloak": "1.3.2.1"
-			"cloak/markdown-reporter": "1.1.1"
+			"cloak/markdown-reporter": "1.0.0"
 		}
 	}
 
