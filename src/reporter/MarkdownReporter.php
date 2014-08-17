@@ -31,6 +31,9 @@ class MarkdownReporter implements ReporterInterface
 
     const TABLE_SEPARATOR_CHAR = '|';
 
+    const ALIGN_LEFT = ':-';
+    const ALIGN_RIGTH = '-:';
+
     /**
      * @var \cloak\writer\FileWriter
      */
@@ -98,7 +101,14 @@ class MarkdownReporter implements ReporterInterface
     private function writeFilesResultHeader()
     {
         $this->reportWriter->writeLine('| No. | File | Line | Coverage |');
-        $this->reportWriter->writeLine('|:-|:-|-:|-:|');
+
+        $record = $this->toTableRow([
+            static::ALIGN_LEFT,
+            static::ALIGN_LEFT,
+            static::ALIGN_RIGTH,
+            static::ALIGN_RIGTH
+        ]);
+        $this->reportWriter->writeLine($record);
     }
 
     /**
@@ -137,6 +147,14 @@ class MarkdownReporter implements ReporterInterface
         $record = static::TABLE_SEPARATOR_CHAR . $columnsValue . static::TABLE_SEPARATOR_CHAR;
 
         $this->reportWriter->writeLine($record);
+    }
+
+    private function toTableRow(array $values)
+    {
+        $record = implode(static::TABLE_SEPARATOR_CHAR, $values);
+        $record = static::TABLE_SEPARATOR_CHAR . $record . static::TABLE_SEPARATOR_CHAR;
+
+        return $record;
     }
 
 }
