@@ -34,6 +34,21 @@ class MarkdownReporter implements ReporterInterface
     const ALIGN_LEFT = ':-';
     const ALIGN_RIGTH = '-:';
 
+    private $columnHeaders = [
+        ' No. ',
+        ' File ',
+        ' Line ',
+        ' Coverage '
+    ];
+
+    private $columnHeaderAlignments = [
+        self::ALIGN_LEFT,
+        self::ALIGN_LEFT,
+        self::ALIGN_RIGTH,
+        self::ALIGN_RIGTH
+    ];
+
+
     /**
      * @var \cloak\writer\FileWriter
      */
@@ -100,14 +115,10 @@ class MarkdownReporter implements ReporterInterface
 
     private function writeFilesResultHeader()
     {
-        $this->reportWriter->writeLine('| No. | File | Line | Coverage |');
+        $record = $this->toTableRow($this->columnHeaders);
+        $this->reportWriter->writeLine($record);
 
-        $record = $this->toTableRow([
-            static::ALIGN_LEFT,
-            static::ALIGN_LEFT,
-            static::ALIGN_RIGTH,
-            static::ALIGN_RIGTH
-        ]);
+        $record = $this->toTableRow($this->columnHeaderAlignments);
         $this->reportWriter->writeLine($record);
     }
 
@@ -143,9 +154,7 @@ class MarkdownReporter implements ReporterInterface
             $coverageResult
         ];
 
-        $columnsValue = implode(static::TABLE_SEPARATOR_CHAR, $parts);
-        $record = static::TABLE_SEPARATOR_CHAR . $columnsValue . static::TABLE_SEPARATOR_CHAR;
-
+        $record = $this->toTableRow($parts);
         $this->reportWriter->writeLine($record);
     }
 
