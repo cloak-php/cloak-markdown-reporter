@@ -1,0 +1,3 @@
+service: travis-ci
+reportFile: script/coveralls.json
+repositoryDirectory: .

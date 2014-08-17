@@ -8,3 +8,4 @@ before_install:
   - composer install
 script:
   - ./vendor/bin/pho --stop
+after_script: php script/coveralls.php
