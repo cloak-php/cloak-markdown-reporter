@@ -17,11 +17,11 @@ use \Mockery;
 
 describe('MarkdownReporter', function() {
     before(function() {
-        $fixturePath = realpath(__DIR__ . '/../spec/fixture/');
+        $fixturePath = realpath(__DIR__ . '/../fixture/');
 
-        $this->source1 = $fixturePath . 'Example1.php';
-        $this->source2 = $fixturePath . 'Example2.php';
-        $this->markdownReport = $fixturePath . 'report.md';
+        $this->source1 = $fixturePath . '/Example1.php';
+        $this->source2 = $fixturePath . '/Example2.php';
+        $this->markdownReport = $fixturePath . '/report.md';
 
         $coverageResults = [
             $this->source1 => [
