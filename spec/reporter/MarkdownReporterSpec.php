@@ -40,10 +40,6 @@ describe('MarkdownReporter', function() {
         $this->result = Result::from($coverageResults);
     });
 
-    describe('onStart', function() {
-        it('check mock object expectations');
-    });
-
     describe('onStop', function() {
         before(function() {
             $this->startEvent = Mockery::mock('cloak\event\StartEventInterface');
