@@ -8,7 +8,7 @@ Output in [markdown](http://daringfireball.net/projects/markdown/) format the re
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cloak-php/cloak-markdown-reporter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cloak-php/cloak-markdown-reporter/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/cloak-php/cloak-markdown-reporter/badge.png)](https://coveralls.io/r/cloak-php/cloak-markdown-reporter)
 [![Stories in Ready](https://badge.waffle.io/cloak-php/cloak-markdown-reporter.png?label=ready&title=Ready)](https://waffle.io/cloak-php/cloak-markdown-reporter)
-
+[![Dependency Status](https://www.versioneye.com/user/projects/53fd595af4df15ce92000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/53fd595af4df15ce92000002)
 
 Installation
 ------------------------------------------------
