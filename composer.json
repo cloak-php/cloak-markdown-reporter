@@ -1,8 +1,8 @@
 {
     "name": "cloak/markdown-reporter",
-    "keywords": [ "code coverage", "markdown", "reporter" ],
+    "keywords": [ "code coverage", "markdown", "reporter", "cloak" ],
     "description": "lcov reporter for cloak",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "require": {
         "php": ">=5.4.0",
         "cloak/cloak": "1.3.2.1"
@@ -13,7 +13,7 @@
     "require-dev": {
         "danielstjules/pho": "1.0.*",
         "jaz303/phake": "0.6.*",
-        "holyshared/coverallskit": "1.2.3",
+        "holyshared/coverallskit": "1.3.1",
         "mockery/mockery": "0.9.*"
     },
     "license": "MIT",
