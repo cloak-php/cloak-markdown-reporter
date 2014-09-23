@@ -20,8 +20,7 @@ Please add a description to the **composer.json** in the configuration file.
 
 	{
 		"require-dev": {
-			"cloak/cloak": "1.3.2.1"
-			"cloak/markdown-reporter": "1.0.1"
+			"cloak/markdown-reporter": "1.0.2"
 		}
 	}
 
