@@ -1,15 +1,14 @@
 cloak-markdown-reporter
 =======================
 
-**cloak-markdown-reporter** is markdown reporter for [cloak](https://github.com/holyshared/cloak).  
+**cloak-markdown-reporter** is markdown reporter for [cloak](https://github.com/cloak-php/cloak).  
 Output in [markdown](http://daringfireball.net/projects/markdown/) format the report of code coverage.
 
-[![Build Status](https://travis-ci.org/holyshared/cloak-markdown-reporter.svg?branch=master)](https://travis-ci.org/holyshared/cloak-markdown-reporter)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/holyshared/cloak-markdown-reporter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/holyshared/cloak-markdown-reporter/?branch=master)
-[![Coverage Status](https://coveralls.io/repos/holyshared/cloak-markdown-reporter/badge.png)](https://coveralls.io/r/holyshared/cloak-markdown-reporter)
-[![Stories in Ready](https://badge.waffle.io/holyshared/cloak-markdown-reporter.png?label=ready&title=Ready)](https://waffle.io/holyshared/cloak-markdown-reporter)
-[![Dependencies Status](https://depending.in/holyshared/cloak-markdown-reporter.png)](http://depending.in/holyshared/cloak-markdown-reporter)
-
+[![Build Status](https://travis-ci.org/cloak-php/cloak-markdown-reporter.svg?branch=master)](https://travis-ci.org/cloak-php/cloak-markdown-reporter)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cloak-php/cloak-markdown-reporter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cloak-php/cloak-markdown-reporter/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/cloak-php/cloak-markdown-reporter/badge.png)](https://coveralls.io/r/cloak-php/cloak-markdown-reporter)
+[![Stories in Ready](https://badge.waffle.io/cloak-php/cloak-markdown-reporter.png?label=ready&title=Ready)](https://waffle.io/cloak-php/cloak-markdown-reporter)
+[![Dependency Status](https://www.versioneye.com/user/projects/53fd595af4df15ce92000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/53fd595af4df15ce92000002)
 
 Installation
 ------------------------------------------------
@@ -22,7 +21,7 @@ Please add a description to the **composer.json** in the configuration file.
 	{
 		"require-dev": {
 			"cloak/cloak": "1.3.2.1"
-			"cloak/markdown-reporter": "1.0.0"
+			"cloak/markdown-reporter": "1.0.1"
 		}
 	}
 
