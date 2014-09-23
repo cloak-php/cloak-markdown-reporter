@@ -1,6 +1,9 @@
 cloak-markdown-reporter
 =======================
 
+It has been merged into 1.3.2.4 of cloak.
+It is not maintenance now.
+
 **cloak-markdown-reporter** is markdown reporter for [cloak](https://github.com/cloak-php/cloak).  
 Output in [markdown](http://daringfireball.net/projects/markdown/) format the report of code coverage.
 
