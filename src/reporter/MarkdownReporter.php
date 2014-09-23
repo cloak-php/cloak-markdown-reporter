@@ -11,7 +11,6 @@
 
 namespace cloak\reporter;
 
-use cloak\reporter\Reportable;
 use cloak\Result;
 use cloak\result\File;
 use cloak\writer\FileWriter;
@@ -96,7 +95,7 @@ class MarkdownReporter implements ReporterInterface
     private function writeTitle()
     {
         $this->reportWriter->writeLine('# Code Coverage Report');
-        $this->reportWriter->writeLine('');
+        $this->reportWriter->writeEOL();
     }
 
     private function writeDescription()
@@ -105,7 +104,7 @@ class MarkdownReporter implements ReporterInterface
 
         $this->reportWriter->writeLine('Generator: cloak  ');
         $this->reportWriter->writeLine("Generated at: $generatedDateTime  ");
-        $this->reportWriter->writeLine('');
+        $this->reportWriter->writeEOL();
     }
 
     private function writeResult(Result $result)
@@ -118,7 +117,7 @@ class MarkdownReporter implements ReporterInterface
     private function writeResultHeader()
     {
         $this->reportWriter->writeLine('## Result');
-        $this->reportWriter->writeLine('');
+        $this->reportWriter->writeEOL();
     }
 
     private function writeFilesResultHeader()
